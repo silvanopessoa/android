@@ -3,64 +3,40 @@ package br.com.silvanopessoa.autenticacao;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import com.dd.processbutton.iml.ActionProcessButton;
-import com.joanzapata.iconify.Iconify;
-import com.joanzapata.iconify.fonts.EntypoModule;
-import com.joanzapata.iconify.fonts.FontAwesomeModule;
-import com.joanzapata.iconify.fonts.MaterialCommunityModule;
-import com.joanzapata.iconify.fonts.MaterialModule;
-import com.joanzapata.iconify.fonts.MeteoconsModule;
-import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
-import com.joanzapata.iconify.fonts.TypiconsModule;
-import com.joanzapata.iconify.fonts.WeathericonsModule;
+public class MainActivity extends AppCompatActivity{
 
-public class MainActivity extends AppCompatActivity {
+    private String mensagem =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final ActionProcessButton btnSignIn = (ActionProcessButton) findViewById(R.id.btnSignIn);
-
-
+        final Button btnSignIn = (Button) findViewById(R.id.btnSignIn);
+        final EditText editEmail = (EditText) findViewById(R.id.editTextLogin);
+        final EditText editPassword = (EditText) findViewById(R.id.editTextPassword);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnSignIn.setMode(ActionProcessButton.Mode.PROGRESS);
-// no progress
-        btnSignIn.setProgress(0);
-// progressDrawable cover 50% of button width, progressText is shown
-        btnSignIn.setProgress(50);
-
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                btnSignIn.setEnabled(false);
+                editEmail.setEnabled(false);
+                editPassword.setEnabled(false);
+                if("admin".equalsIgnoreCase(editEmail.getText().toString()) && "admin".equalsIgnoreCase(editPassword.getText().toString())){
+                    mensagem="Autenticado com sucesso.";
+                    Toast.makeText(MainActivity.this, mensagem, Toast.LENGTH_LONG).show();
                 }
-// progressDrawable cover 75% of button width, progressText is shown
-        btnSignIn.setProgress(75);
-// completeColor & completeText is shown
-        btnSignIn.setProgress(100);
-
-// you can display endless google like progress indicator
-        btnSignIn.setMode(ActionProcessButton.Mode.ENDLESS);
+                else{
+                    mensagem="Usuário ou senha inválida.";
+                    btnSignIn.setEnabled(true);
+                    editEmail.setEnabled(true);
+                    editPassword.setEnabled(true);
+                    Toast.makeText(MainActivity.this, mensagem, Toast.LENGTH_LONG).show();
+                }
             }
         });
-//
-//// no progress
-//        btnSignIn.setProgress(0);
-//// progressDrawable cover 50% of button width, progressText is shown
-//        btnSignIn.setProgress(50);
-//// progressDrawable cover 75% of button width, progressText is shown
-//        btnSignIn.setProgress(75);
-//// completeColor & completeText is shown
-//        btnSignIn.setProgress(100);
-//
-//// you can display endless google like progress indicator
-//        btnSignIn.setMode(ActionProcessButton.Mode.ENDLESS);
-//// set progress > 0 to start progress indicator animation
-//        btnSignIn.setProgress(1);
     }
+
 }

@@ -10,35 +10,41 @@
     tools:context="br.com.silvanopessoa.autenticacao.MainActivity">
 
     <ImageView
+        android:id="@+id/imgViewLogo"
         android:layout_width="match_parent"
         app:srcCompat="@drawable/vetsgo"
-        android:id="@+id/imgViewLogo"
         android:scaleType="centerCrop"
         android:cropToPadding="false"
         android:adjustViewBounds="false"
         android:layout_height="180dp" />
 
     <EditText
+        android:id="@+id/editTextLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:id="@+id/editTextLogin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:drawableLeft="@drawable/user"
         android:hint="Nome do Usuário ou e-mail" />
 
 
     <EditText
+        android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:inputType="textPassword"
-        android:id="@+id/editTextPassword"
         android:drawableLeft="@drawable/lock"
         android:hint="Senha"/>
 
     <com.dd.processbutton.iml.ActionProcessButton
+        android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSignIn"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="16dp"
         android:text="Acessar"
         android:textColor="@android:color/white"
@@ -51,8 +57,6 @@
         custom:pb_textProgress="Autenticando"
         custom:pb_textError="Error"
         custom:pb_colorError="@color/red_error"
-        android:layout_marginLeft="16px"
-        android:layout_marginRight="16px"
         />
 
     <TextView
@@ -64,12 +68,12 @@
         android:textStyle="bold"
         android:id="@+id/textView3" />
 
-    <View android:id="@+id/separator"
-        android:background="@color/font_login"
+    <View android:id="@+id/separator_superior"
         android:layout_width = "fill_parent"
         android:layout_height="3dip"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/font_login"
         android:layout_marginBottom="16dp"
         android:layout_centerVertical ="true"
         android:layout_alignParentTop="true"/>
@@ -117,12 +121,12 @@
 
     </LinearLayout>
 
-    <View android:id="@+id/separator2"
+    <View android:id="@+id/separator_inferior"
         android:background="@color/font_login"
         android:layout_width = "fill_parent"
         android:layout_height="3dip"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginTop="16dp"
         android:layout_centerVertical ="true"
         android:layout_alignParentTop="true"/>

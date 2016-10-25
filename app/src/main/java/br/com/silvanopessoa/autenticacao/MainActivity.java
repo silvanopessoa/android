@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity{
                 if("admin".equalsIgnoreCase(editEmail.getText().toString()) && "admin".equalsIgnoreCase(editPassword.getText().toString())){
                     mensagem="Autenticado com sucesso.";
                     Toast.makeText(MainActivity.this, mensagem, Toast.LENGTH_LONG).show();
+                    setContentView(R.layout.activity_home);
                 }
                 else{
                     mensagem="Usuário ou senha inválida.";

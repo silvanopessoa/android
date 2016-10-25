@@ -1,5 +1,7 @@
 package br.com.silvanopessoa.autenticacao;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity{
 
     private String mensagem =null;
+
+
+    private Context getContext(){
+        return this;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,9 @@ public class MainActivity extends AppCompatActivity{
                 if("admin".equalsIgnoreCase(editEmail.getText().toString()) && "admin".equalsIgnoreCase(editPassword.getText().toString())){
                     mensagem="Autenticado com sucesso.";
                     Toast.makeText(MainActivity.this, mensagem, Toast.LENGTH_LONG).show();
-                    setContentView(R.layout.activity_home);
+                    Intent intent = new Intent(getContext(),HomeActivity.class);
+                    startActivity(intent);
+                    //setContentView(R.layout.activity_home);
                 }
                 else{
                     mensagem="Usuário ou senha inválida.";
